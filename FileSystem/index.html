@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html ng-app="FSApp" ng-controller="DirectoryModelCtrl">
+<head>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/FileSystemApp.js"></script>
+    <title>File System</title>
+	<meta charset="utf-8" />
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>&#60 = 10Mb</th>
+                <th>10Mb - 50Mb</th>
+                <th>&#62 = 100Mb</th>
+            </tr>
+            <tr>
+                <td>{{smallFiles}}</td>
+                <td>{{mediumFiles}}</td>
+                <td>{{largeFiles}}</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <p><b>Current path:</b> {{currentPath}} </p>
+    </div>
+    <div>
+        <ul>
+            <li ng-click="GoToParentDirectory()"><u>[...]</u></li>
+            <li ng-repeat="dir in directories" ng-click="GoToChildDirectory(dir)">{{dir}}</li>
+            <li ng-repeat="file in files"><u>{{file}}</u></li>
+        </ul>
+    </div>
+</body>
+</html>
